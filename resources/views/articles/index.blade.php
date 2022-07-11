@@ -7,11 +7,13 @@
       <div class="card">
         <div class="card-header">投稿一覧</div>
 
-        <div class="card-body">
+      <div class="card-body">
 
-        <button type="button" class="btn btn-primary mb-3 d-block w-100" onclick="location.href='{{ route('articles.create') }}'">
+       <div class="wrap">
+         <button type="button" class="button" onclick="location.href='{{ route('create') }}'">
             新規投稿
           </button>
+       </div>
 
           <div class="table-resopnsive">
             <table class="table table-striped">
@@ -26,7 +28,7 @@
                 @if(isset($articles))
                 @foreach ($articles as $article)
                 <tr>
-                  <td><a href="{{ route('articles.show', $article->id) }}">{{ $article->title }}</a></td>
+                  <td ><a href="{{ route('show', $article->id) }}">{{ $article->title }}</a></td>
                   <td>{{ $article->body }}</td>
                   <td>{{ $article->status }}</td>
                 </tr>

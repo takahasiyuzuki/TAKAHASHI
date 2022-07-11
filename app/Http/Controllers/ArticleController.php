@@ -15,10 +15,10 @@ class ArticleController extends Controller
     public function index()
     {
          // すべての記事を取得
-         $articles = Article::all(); // ここを追記
+         $articles = Article::all();
 
          // 記事一覧を表示
-         return view('articles.index', compact('articles')); // ここを追記
+         return view('articles.index', compact('articles')); 
     }
 
     /**
@@ -29,7 +29,7 @@ class ArticleController extends Controller
     public function create()
     {
          // 投稿画面表示
-         return view('articles.create'); // ここを追記
+         return view('articles.create'); 
     }
 
     /**
@@ -45,9 +45,9 @@ class ArticleController extends Controller
          'title' => $request->title,
          'body' => $request->body,
          'status' => $request->status,
-        ]); // ここを追加
+        ]); 
 
-          return redirect()->route('articles.index'); // ここを追加
+          return redirect()->route('articles.index'); 
     }
 
     /**
@@ -57,13 +57,13 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Int $id)
-{
-    // ビューから渡されたIDの記事を取得
-    $article = Article::find($id);
+    {
+        // ビューから渡されたIDの記事を取得
+        $article = Article::find($id);
 
-    // 記事詳細画面を表示
-    return view('articles.show', compact('article'));
-}
+        // 記事詳細画面を表示
+        return view('articles.show', compact('article'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -71,15 +71,15 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Int $id)
     {
-         // ビューから渡されたIDの記事を取得
-         $article = Article::find($id); // ここを追記
+    // ビューから渡されたIDの記事を取得
+    $article = Article::find($id);
 
-         // 記事編集画面を表示
-         return view('articles.edit', compact('article')); // ここを追記
+    // 記事編集画面を表示
+    return view('articles.edit', compact('article'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -87,16 +87,16 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Int $id)
     {
-        // 選択された記事データを取得
-         $article = Article::find($id);
+    // 選択された記事データを取得
+    $article = Article::find($id);
 
-        // 編集処理実行
-         $article->fill($request->all())->save();
+    // 編集処理実行
+    $article->fill($request->all())->save();
 
-         // 記事一覧画面へ
-         return redirect()->route('articles.index');
+    // 記事一覧画面へ
+    return redirect()->route('index');
     }
 
     /**
@@ -116,4 +116,6 @@ class ArticleController extends Controller
           // 記事一覧画面へ
           return redirect()->route('articles.index');
     }
+
+
 }

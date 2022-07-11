@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">新規投稿</div>
                 <div class="card-body">
-                    <form action="{{ route('articles.store') }}" method="POST">
+                    <form action="{{ route('store') }}" method="POST">
                         @csrf
                         <div class="form-group row">
                             <label for="title" class="col-md-2 col-form-label text-md-right">タイトル</label>
@@ -18,7 +18,7 @@
                         <div class="form-group row">
                             <label for="body" class="col-md-2 col-form-label text-md-right">本文</label>
                             <div class="col-md-9">
-                                <textarea name="body" id="body" style="resize: none; height: 200px; width: 100%">{{ old('body') }}</textarea>
+                                <textarea name="body" id="body" class="form-control">{{ old('body') }}</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -32,13 +32,15 @@
                                 <label class="form-check-label" for="private">未公開</label>
                              </div>
                         </div>
-                        <div class="form-group row mb-0">
+                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="button" class="btn btn-secondary" onClick="history.back()">戻る</button>
-                                <button type="submit" class="btn btn-primary ml-3" name='action' value='add'>
+                            <div class="wrap">
+                                <button type="button" class="button4" onClick="history.back()">戻る</button>
+                                <button type="submit" class="button2" name='action' value='add'>
                                     投稿
                                 </button>
-                            </div>
+                         </div>
+                         </div>
                         </div>
                     </form>
                 </div>

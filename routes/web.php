@@ -17,9 +17,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ArticleController@index')->name('index'); 
+
+Route::get('/index', 'ArticleController@index')->name('index'); 
+
+Route::get('/create', 'ArticleController@create')->name('create'); 
 
 
-Route::get('/home', 'ArticleController@index')->name('articles.index'); 
+Route::get('/store', 'ArticleController@store')->name('store'); 
 
-Route::resource('articles', 'ArticleController')->except('index'); 
+Route::get('/show/{id}', 'ArticleController@show')->name('show'); 
+
+Route::get('/edit/{id}', 'ArticleController@edit')->name('edit'); 
+
+Route::get('/destroy/{id}', 'ArticleController@destroy')->name('destroy'); 
+
+Route::post('/update/{id}', 'ArticleController@update')->name('update'); 

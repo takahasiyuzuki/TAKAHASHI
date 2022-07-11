@@ -20,7 +20,7 @@
               <tbody>
                 @if(isset($article))
                 <tr>
-                <td><a href="{{ route('articles.edit', $article->id) }}">{{ $article->title }}</a></td>
+                <td><a href="{{ route('edit', $article->id) }}">{{ $article->title }}</a></td>
                   <td>{{ $article->body }}</td>
                   <td>{{ $article->status }}</td>
                 </tr>
@@ -29,12 +29,15 @@
             </table>
             @if(isset($article))
             <div class="text-center">
-                <button type="button" class="btn btn-secondary" onClick="history.back()">戻る</button>
+                <button type="button" class="button4" onClick="history.back()">戻る</button>
 
-                <form style="display:inline" action="{{ route('articles.destroy', $article->id) }}" method="post">
+                <form style="display:inline" action="{{ route('edit', $article->id) }}" method="post">
+                <button type="button" class="button3" onClick="location.href='{{ route('edit', $article->id) }}'">
+                    編集
+                </button>
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="btn btn-danger ml-3">
+                    <button type="submit" class="button2">
                         {{ __('削除') }}
                     </button>
                 </form>

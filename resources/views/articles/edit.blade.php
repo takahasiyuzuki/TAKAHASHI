@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">新規投稿</div>
                 <div class="card-body">
-                    <form action="{{ route('articles.update', $article->id) }}" method="POST">
+                    <form action="{{ route('update', $article->id) }}" method="POST">
                         @csrf
                         <div class="form-group row">
                             <label for="title" class="col-md-2 col-form-label text-md-right">タイトル</label>
@@ -18,7 +18,7 @@
                         <div class="form-group row">
                             <label for="body" class="col-md-2 col-form-label text-md-right">本文</label>
                             <div class="col-md-9">
-                                <textarea name="body" id="body" style="resize: none; height: 200px; width: 100%">{{ old('body', $article->body) }}</textarea>
+                                <textarea name="body" id="body" class="form-control">{{ old('body', $article->body) }}</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -33,8 +33,8 @@
                              </div>
                         </div>
                         <div class="text-center">
-                            <button type="button" class="btn btn-secondary" onClick="history.back()">戻る</button>
-                            <button type="submit" class="btn btn-primary ml-3" name='action' value='add'>
+                            <button type="button" class="button4" onClick="history.back()">戻る</button>
+                            <button type="submit" class="button2" name='action'value='add'>
                                 編集
                             </button>
                         </div>
