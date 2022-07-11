@@ -7,7 +7,12 @@
             <div class="card">
                 <div class="card-header">新規投稿</div>
                 <div class="card-body">
-                    <form action="{{ route('store') }}" method="POST">
+                @if (session('flash_message'))
+            <div class="flash_message">
+                {{ session('flash_message') }}
+            </div>
+        @endif
+                    <form action="{{ route('store') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="title" class="col-md-2 col-form-label text-md-right">タイトル</label>

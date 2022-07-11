@@ -30,6 +30,6 @@ Route::get('/show/{id}', 'ArticleController@show')->name('show');
 
 Route::get('/edit/{id}', 'ArticleController@edit')->name('edit'); 
 
-Route::get('/destroy/{id}', 'ArticleController@destroy')->name('destroy'); 
+Route::GET('/destroy/{id}', 'ArticleController@destroy')->name('destroy'); 
 
 Route::post('/update/{id}', 'ArticleController@update')->name('update'); 

@@ -59,6 +59,7 @@ html {
   justify-content: center;
   position: relative;
   bottom: 10px
+  
 }
 
 .button {
@@ -344,6 +345,7 @@ table {
   border-radius: 10px;
   text-align: center;
   border: 1px solid #aaa;
+  background-color: #fb0000;
 }
 
 caption {
@@ -1895,6 +1897,7 @@ pre code {
   margin-bottom: 1rem;
   color: #212529;
   writing-mode: horizontal-tb;
+  
 }
 .table th,
 .table td {
@@ -1906,6 +1909,7 @@ pre code {
     vertical-align: middle;
     border-right: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
+
     
 }
 
@@ -1947,7 +1951,7 @@ pre code {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(186, 160, 160, 0.05);
 }
 
 .table-hover tbody tr:hover {

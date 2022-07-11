@@ -47,7 +47,9 @@ class ArticleController extends Controller
          'status' => $request->status,
         ]); 
 
-          return redirect()->route('articles.index'); 
+        session()->flash('flash_message', '投稿が完了しました');
+
+          return redirect()->route('index'); 
     }
 
     /**
@@ -105,7 +107,7 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id, Article $article)
     {
           // 選択された記事データを取得
           $article = Article::find($id);
@@ -114,7 +116,7 @@ class ArticleController extends Controller
           $article->delete();
 
           // 記事一覧画面へ
-          return redirect()->route('articles.index');
+          return redirect()->route('index');
     }
 
 

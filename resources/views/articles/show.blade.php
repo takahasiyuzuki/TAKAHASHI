@@ -35,12 +35,15 @@
                 <button type="button" class="button3" onClick="location.href='{{ route('edit', $article->id) }}'">
                     編集
                 </button>
+                </form>
+                <form style="display:inline" action="{{ route('destroy', $article->id) }}">
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="button2">
                         {{ __('削除') }}
                     </button>
                 </form>
+                
             </div>
             @endif
           </div>
