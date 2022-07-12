@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">新規投稿</div>
+            <div class="midasi"><div class="toukou">新規投稿</div></div>
                 <div class="card-body">
                     <form action="{{ route('update', $article->id) }}" method="POST">
                         @csrf
@@ -35,7 +35,7 @@
                         <div class="text-center">
                             <button type="button" class="button4" onClick="history.back()">戻る</button>
                             <button type="submit" class="button2" name='action'value='add'>
-                                編集
+                                登録
                             </button>
                         </div>
                     </form>

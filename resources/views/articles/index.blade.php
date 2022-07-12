@@ -5,17 +5,14 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header">投稿一覧</div>
-
+        <div class="midasi"><div class="toukou">投稿一覧</div></div>
       <div class="card-body">
-
        <div class="wrap">
          <button type="button" class="button" onclick="location.href='{{ route('create') }}'">
             新規投稿
           </button>
        </div>
-
-          <div class="table-resopnsive">
+       <div class="table-resopnsive">
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -24,11 +21,12 @@
                   <th>状態</th>
                 </tr>
               </thead>
+                 
               <tbody>
                 @if(isset($articles))
                 @foreach ($articles as $article)
-                <tr>
-                  <td ><a href="{{ route('show', $article->id) }}">{{ $article->title }}</a></td>
+                <tr class="orange">
+                  <td><a href="{{ route('show', $article->id) }}">{{ $article->title }}</a></td>
                   <td>{{ $article->body }}</td>
                   <td>{{ $article->status }}</td>
                 </tr>

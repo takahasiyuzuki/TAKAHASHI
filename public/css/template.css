@@ -52,6 +52,69 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+div #popup{
+
+  width: 300px;
+  display: none;
+  padding: 30px 20px;
+  border: 2px solid rgb(232, 232, 232);
+  margin: auto;
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  border-radius: 50px;
+  border: none;
+  background-color: #0077ff;
+  box-shadow: 0px 15px 20px rgba(73, 73, 73, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+div #popup #ok{
+
+  color: #4e4e4e; 
+  border-radius: 5px;
+  border: none;
+  background-color: #ffffff;
+  margin: 10px;
+
+}
+
+div #popup #no{
+
+  color: #4e4e4e; 
+  border-radius: 5px;
+  border: none;
+  background-color: #ffffff;
+  margin: 10px;
+
+}
+
+.midasi {
+  position: relative;
+  padding: 1rem .5rem;
+}
+
+.midasi:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  content: '';
+  border-radius: 3px;
+  background-image: -webkit-gradient(linear, right top, left top, from(#2af598), to(#009efd));
+  background-image: -webkit-linear-gradient(right, #2af598 0%, #009efd 100%);
+  background-image: linear-gradient(to left, #2af598 0%, #009efd 100%);
+}
+
+.toukou{
+
+  position: relative;
+  left:30px;
+
+}
+
 .wrap {
   height: 100%;
   display: flex;
@@ -73,7 +136,6 @@ html {
   color: #000;
   background-color: rgb(255, 255, 255);
   border: none;
-  border-radius: 50px;
   box-shadow: 0px 8px 15px rgba(16, 18, 68, 0.218);
   transition: all 0.3s ease 0s;
   cursor: pointer;
@@ -169,6 +231,23 @@ html {
   transform: translateY(-7px);
 }
 
+.orange {
+
+  margin: 20px;
+	box-shadow: 0px 8px 15px rgba(16, 18, 68, 0.218);
+	transition: .3s;
+ 
+}
+.orange:hover {
+
+  box-shadow: 0px 15px 10px rgba(209, 211, 248, 0.4);
+  background-image: -webkit-gradient(linear, right top, left top, from(#9be15d), to(#00e3ae));
+  background-image: -webkit-linear-gradient(right, #9be15d 0%, #00e3ae 100%);
+  background-image: linear-gradient(to left, #9be15d 0%, #00e3ae 100%);
+  transform: translateY(-7px);
+
+}
+
 article,
 aside,
 figcaption,
@@ -190,7 +269,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #ffffff;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -338,14 +417,13 @@ svg {
 }
 
 table {
-  border: 1px solid #aaa;
+  border: 0px solid #aaa;
   border-collapse: separate;
   overflow: hidden;
   border-spacing: 0;
   border-radius: 10px;
   text-align: center;
-  border: 1px solid #aaa;
-  background-color: #fb0000;
+  border: 0px solid #aaa;
 }
 
 caption {
@@ -357,8 +435,10 @@ caption {
 }
 
 th {
+  
   text-align: inherit;
   text-align: -webkit-match-parent;
+  
 }
 
 label {
@@ -1893,35 +1973,41 @@ pre code {
 }
 
 .table {
+
   width: 100%;
   margin-bottom: 1rem;
   color: #212529;
   writing-mode: horizontal-tb;
+  border-spacing: 0px 20px;
+  border-radius: 30px;
   
 }
+
 .table th,
 .table td {
   /* padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6; */
 
+  
     padding: .6em 3em;
     vertical-align: middle;
-    border-right: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
-
-    
+    border-right: 0px solid #aaa;
+    border-bottom: 0px solid #aaa;
 }
 
 .table thead th {
+
   vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
+  border-bottom: 1px solid #d4d8dc;
   text-align:center;
   padding:20px 0;
+ 
 }
 
 .table tbody + tbody {
-  border-top: 2px solid #dee2e6;
+  border-top: 2px solid #dee3e6;
+  
 }
 
 .table-sm th,
@@ -1931,6 +2017,7 @@ pre code {
 
 .table-bordered {
   border: 1px solid #dee2e6;
+  
 }
 
 .table-bordered th,
@@ -2179,6 +2266,7 @@ pre code {
 
 .table-dark.table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(255, 255, 255, 0.05);
+
 }
 
 .table-dark.table-hover tbody tr:hover {
@@ -2243,10 +2331,12 @@ pre code {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  
 }
 
 .table-responsive > .table-bordered {
   border: 0;
+  
 }
 
 .form-control {
@@ -5128,7 +5218,7 @@ input[type=button].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 0px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
 
@@ -5157,7 +5247,9 @@ input[type=button].btn-block {
 .card > .card-header + .list-group,
 .card > .list-group + .card-footer {
   border-top: 0;
+
 }
+
 
 .card-body {
   flex: 1 1 auto;
@@ -11088,5 +11180,16 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+
+  .pic-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem 6rem;
+    box-sizing: border-box;
+    background-color: rgb(254, 254, 254);
+}
+
+  
+
 }
 

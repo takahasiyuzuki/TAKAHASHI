@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">新規投稿</div>
+            <div class="midasi"><div class="toukou">新規投稿</div></div>
                 <div class="card-body">
                 @if (session('flash_message'))
             <div class="flash_message">

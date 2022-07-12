@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header">記事詳細</div>
+      <div class="midasi"><div class="toukou">記事詳細</div></div>
 
         <div class="card-body">
           <div class="table-resopnsive">
@@ -36,15 +36,21 @@
                     編集
                 </button>
                 </form>
-                <form style="display:inline" action="{{ route('destroy', $article->id) }}">
+               
+                <form style="display:inline" name="contactform" action="{{ route('destroy', $article->id) }}">
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="button2">
+                    <button type="submit"  class="button2"  onclick="return confirm_test()">
                         {{ __('削除') }}
                     </button>
                 </form>
-                
-            </div>
+
+                    <div id="popup">
+                          本当に削除しますか？<br>
+                       <button id="ok" onclick="okfunc()"> O K </button>
+                       <button id="no" onclick="nofunc()">キャンセル</button>
+</div>
+
             @endif
           </div>
         </div>
