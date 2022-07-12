@@ -236,16 +236,30 @@ div #popup #no{
   margin: 20px;
 	box-shadow: 0px 8px 15px rgba(16, 18, 68, 0.218);
 	transition: .3s;
+  padding: 0.7em; 
  
 }
-.orange:hover {
+.orange:hover
+{
 
+  color: #fff;
   box-shadow: 0px 15px 10px rgba(209, 211, 248, 0.4);
   background-image: -webkit-gradient(linear, right top, left top, from(#9be15d), to(#00e3ae));
   background-image: -webkit-linear-gradient(right, #9be15d 0%, #00e3ae 100%);
   background-image: linear-gradient(to left, #9be15d 0%, #00e3ae 100%);
   transform: translateY(-7px);
 
+}
+
+.result {
+
+  font-size: 15px;
+	background-color: #00e3ae;
+  color: #ffffff;
+  border-radius:100%;
+	transition: .3s;
+  padding: 4em; 
+ 
 }
 
 article,

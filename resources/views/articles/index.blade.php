@@ -16,6 +16,7 @@
             <table class="table table-striped">
               <thead>
                 <tr>
+                  <th>ID</th>
                   <th>タイトル</th>
                   <th>本文</th>
                   <th>状態</th>
@@ -26,7 +27,8 @@
                 @if(isset($articles))
                 @foreach ($articles as $article)
                 <tr class="orange">
-                  <td><a href="{{ route('show', $article->id) }}">{{ $article->title }}</a></td>
+                  <td><a class="result" href="{{ route('show', $article->id) }}">{{ $article->id }}</a></td>
+                  <td>{{ $article->title }}</a></td>
                   <td>{{ $article->body }}</td>
                   <td>{{ $article->status }}</td>
                 </tr>

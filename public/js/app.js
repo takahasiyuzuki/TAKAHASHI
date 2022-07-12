@@ -11,7 +11,6 @@ function nofunc() {
   document.getElementById('popup').style.display = 'none';
 }
 
-
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
