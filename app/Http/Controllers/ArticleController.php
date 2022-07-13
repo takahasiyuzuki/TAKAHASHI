@@ -14,10 +14,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-         // すべての記事を取得
+         
          $articles = Article::all();
 
-         // 記事一覧を表示
+         
          return view('articles.index', compact('articles')); 
     }
 
@@ -28,7 +28,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-         // 投稿画面表示
+         
          return view('articles.create'); 
     }
 
@@ -40,7 +40,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-         // 投稿内容保存処理
+         
          $article = Article::create([
          'title' => $request->title,
          'body' => $request->body,
@@ -58,10 +58,10 @@ class ArticleController extends Controller
      */
     public function show(Int $id)
     {
-        // ビューから渡されたIDの記事を取得
+        
         $article = Article::find($id);
 
-        // 記事詳細画面を表示
+        
         return view('articles.show', compact('article'));
     }
 
@@ -73,7 +73,7 @@ class ArticleController extends Controller
      */
     public function edit(Int $id)
     {
-    // ビューから渡されたIDの記事を取得
+    
     $article = Article::find($id);
 
     // 記事編集画面を表示
@@ -89,7 +89,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Int $id)
     {
-    // 選択された記事データを取得
+   
     $article = Article::find($id);
 
     // 編集処理実行
@@ -107,19 +107,19 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-          // 選択された記事データを取得
+          
           $article = Article::find($id);
 
-          // 削除処理実行
+          
           $article->delete();
 
-          // 記事一覧画面へ
+          
           return redirect()->route('index');
     }
 
     public function test()
     {
-         // 投稿画面表示
+        
          return view('articles.test'); 
     }
 
