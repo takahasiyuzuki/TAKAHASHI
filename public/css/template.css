@@ -236,7 +236,7 @@ div #popup #no{
   margin: 20px;
 	box-shadow: 0px 8px 15px rgba(16, 18, 68, 0.218);
 	transition: .3s;
-  padding: 0.7em; 
+  padding: 0.6em; 
  
 }
 .orange:hover
@@ -253,12 +253,13 @@ div #popup #no{
 
 .result {
 
-  font-size: 15px;
+  margin: 10px;
+  font-size: 20px;
 	background-color: #00e3ae;
   color: #ffffff;
   border-radius:100%;
 	transition: .3s;
-  padding: 4em; 
+  padding: 10px; 
  
 }
 
@@ -1989,9 +1990,9 @@ pre code {
 .table {
 
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 5rem;
   color: #212529;
-  writing-mode: horizontal-tb;
+  writing-mode:lr-tb;
   border-spacing: 0px 20px;
   border-radius: 30px;
   
@@ -2003,15 +2004,21 @@ pre code {
   vertical-align: top;
   border-top: 1px solid #dee2e6; */
 
-  
-    padding: .6em 3em;
+    table-layout: fixed;
+    width: 300px;
+    height: 60px;
+    padding: .4em 2em;
     vertical-align: middle;
     border-right: 0px solid #aaa;
     border-bottom: 0px solid #aaa;
+    writing-mode: horizontal-tb;
+
+    
 }
 
 .table thead th {
 
+  
   vertical-align: bottom;
   border-bottom: 1px solid #d4d8dc;
   text-align:center;
@@ -2020,6 +2027,7 @@ pre code {
 }
 
 .table tbody + tbody {
+  
   border-top: 2px solid #dee3e6;
   
 }

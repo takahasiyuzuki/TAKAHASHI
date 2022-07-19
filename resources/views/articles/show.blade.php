@@ -6,51 +6,55 @@
     <div class="col-md-12">
       <div class="card">
       <div class="midasi"><div class="toukou">記事詳細</div></div>
-
         <div class="card-body">
           <div class="table-resopnsive">
             <table class="table table-striped">
               <thead>
                 <tr>
+                  <th>作成者ID</th>
                   <th>タイトル</th>
                   <th>本文</th>
                   <th>状態</th>
                 </tr>
-              </thead>
+              </thead> 
               <tbody>
                 @if(isset($article))
                 <tr>
-                <td><a href="{{ route('edit', $article->id) }}">{{ $article->title }}</a></td>
+                  <td>{{ $article->user_id }}</td>
+                  <td>{{ $article->title }}</td>
                   <td>{{ $article->body }}</td>
                   <td>{{ $article->status }}</td>
                 </tr>
                 @endif
               </tbody>
             </table>
-            @if(isset($article))
             <div class="text-center">
-                <button type="button" class="button4" onClick="history.back()">戻る</button>
+             <button type="button" class="button4" onClick="history.back()">戻る</button>
+           </div>
 
-                <form style="display:inline" action="{{ route('edit', $article->id) }}" method="post">
-                <button type="button" class="button3" onClick="location.href='{{ route('edit', $article->id) }}'">
-                    編集
-                </button>
-                </form>
-               
-                <form style="display:inline" name="contactform" action="{{ route('destroy', $article->id) }}">
-                    @method('DELETE')
-                    @csrf
-                    <button type="submit"  class="button2"  onclick="return confirm_test()">
-                        {{ __('削除') }}
-                    </button>
-                </form>
+            @if(Auth::id() === 2)
+            @if(isset($article))
+              <div class="text-center">
+                  <button type="button" class="button4" onClick="history.back()">戻る</button>
 
-                    <div id="popup">
-                          本当に削除しますか？<br>
-                       <button id="ok" onclick="okfunc()"> O K </button>
-                       <button id="no" onclick="nofunc()">キャンセル</button>
-</div>
-
+                  <form style="display:inline" action="{{ route('edit', $article->id) }}" method="post">
+                   <button type="button" class="button3" onClick="location.href='{{ route('edit', $article->id) }}'">
+                      編集
+                   </button>
+                  </form>
+                         <form style="display:inline" name="contactform" action="{{ route('destroy', $article->id) }}">
+                                  @method('DELETE')
+                                  @csrf
+                                  <button type="submit"  class="button2"  onclick="return confirm_test()">
+                                      {{ __('削除') }}
+                                  </button>
+                          </form>
+                  <div id="popup">
+                      本当に削除しますか？<br>
+                      <button id="ok" onclick="okfunc()"> O K </button>
+                      <button id="no" onclick="nofunc()">キャンセル</button>
+                  </div>
+              @endif
             @endif
           </div>
         </div>

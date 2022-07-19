@@ -15,10 +15,11 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title', 100); // ここを追加
-            $table->text('body'); // ここを追加
-            $table->integer('status'); // ここを追加
-            $table->timestamps();
+            $table->string('title', 255); 
+            $table->text('body'); 
+            $table->integer('status'); 
+            $table->integer('user_id'); 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,5 +31,7 @@ class CreateArticlesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('articles');
+        $table->dropForeign('articles_user_id_foreign');
+        $table->dropColumn('user_id');
     }
 }

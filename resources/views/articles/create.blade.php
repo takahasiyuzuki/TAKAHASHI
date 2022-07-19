@@ -20,12 +20,14 @@
                                 <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}">
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label for="body" class="col-md-2 col-form-label text-md-right">本文</label>
                             <div class="col-md-9">
                                 <textarea name="body" id="body" class="form-control">{{ old('body') }}</textarea>
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label text-md-right">ステータス</label>
                             <div class="form-check form-check-inline ml-3">
@@ -37,15 +39,16 @@
                                 <label class="form-check-label" for="private">未公開</label>
                              </div>
                         </div>
-                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                            <div class="wrap">
+
+                           <div class="form-group row mb-0">
+                             <div class="col-md-6 offset-md-4">
+                             <div class="wrap">
                                 <button type="button" class="button4" onClick="history.back()">戻る</button>
                                 <button type="submit" class="button2" name='action' value='add'>
                                     投稿
                                 </button>
-                         </div>
-                         </div>
+                               </div>
+                           </div>
                         </div>
                     </form>
                 </div>

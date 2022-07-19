@@ -2,6 +2,7 @@
 
 // namespace App;
 namespace App\Models;
+use App\Models\Article;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -38,4 +39,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function articles()
+    {
+        return $this->hasMany('App\Models\Article');
+    }
+
+    
 }

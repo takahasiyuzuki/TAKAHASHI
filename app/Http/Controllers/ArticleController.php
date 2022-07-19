@@ -4,20 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\User;
+
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
+     public function __construct(){
+
+         $this->middleware('auth');
+          
+     }
+     
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-         
          $articles = Article::all();
 
-         
          return view('articles.index', compact('articles')); 
     }
 
@@ -39,15 +47,18 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-         
+    {    
+         $user = Auth::user(); //追記
+         $id = Auth::id(); //追記
+
          $article = Article::create([
+         'user_id' => $user->id,
          'title' => $request->title,
          'body' => $request->body,
          'status' => $request->status,
         ]); 
 
-          return redirect()->route('articles.index'); 
+          return redirect()->route('index'); 
     }
 
     /**
@@ -57,12 +68,11 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Int $id)
-    {
-        
-        $article = Article::find($id);
-
-        
-        return view('articles.show', compact('article'));
+    {    
+         $user_id = Auth::id();
+         $article = Article::find($id);
+         
+         return view('articles.show', compact('article'));
     }
 
     /**
@@ -73,11 +83,10 @@ class ArticleController extends Controller
      */
     public function edit(Int $id)
     {
-    
-    $article = Article::find($id);
+         $article = Article::find($id);
 
-    // 記事編集画面を表示
-    return view('articles.edit', compact('article'));
+         // 記事編集画面を表示
+         return view('articles.edit', compact('article'));
     }
     
     /**
@@ -89,14 +98,13 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Int $id)
     {
-   
-    $article = Article::find($id);
+         $article = Article::find($id);
 
-    // 編集処理実行
-    $article->fill($request->all())->save();
+         // 編集処理実行
+         $article->fill($request->all())->save();
 
-    // 記事一覧画面へ
-    return redirect()->route('index');
+         // 記事一覧画面へ
+         return redirect()->route('index');
     }
 
     /**
@@ -108,21 +116,12 @@ class ArticleController extends Controller
     public function destroy($id)
     {
           
-          $article = Article::find($id);
+         $article = Article::find($id);
 
+         $article->delete();
           
-          $article->delete();
-
-          
-          return redirect()->route('index');
+         return redirect()->route('index');
     }
-
-    public function test()
-    {
-        
-         return view('articles.test'); 
-    }
-
 
 
 }
