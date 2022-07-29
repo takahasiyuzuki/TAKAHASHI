@@ -6,14 +6,21 @@
     <div class="col-md-12">
       <div class="card">
       <div class="midasi">
+
       @if(isset($article))
         <div class="toukou">{{ $article->title }}記事詳細<div style="float: right; margin-right: 50px;">{{ config('const.status')[$article->status] }}中</div></div>
       </div>
         <div class="card-body">
           <div class="table-resopnsive">
-                  <div class="box1">{{ $article->user->name }}</div>
-                  <h2>{{ $article->title }}</h2>
-                  <div class="box">{{ $article->body }}</div>
+                  <div class="box1">作成者：{{ $article->user->name }}</div>
+
+                  <div class="card-2">
+                   <div class="content-img">
+                    <img src="{{ asset("storage/$article->img_path") }}" />
+                   </div>
+                  <p class="content-1">{{ $article->title }}</p>
+                  <p class="content-2">{{ $article->body }}</p>
+                </div>
                 @endif
 
             @if(isset($article))

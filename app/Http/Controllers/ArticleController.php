@@ -207,6 +207,13 @@ class ArticleController extends Controller
         return redirect()->route('index');
     }
 
+    public function test()
+    {
+         $articles = Article::all();
+
+         return view('articles.test'); 
+    }
+
 
 
 

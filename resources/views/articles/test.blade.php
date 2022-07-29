@@ -9,14 +9,15 @@
         <div class="card-body">
           <div class="table-resopnsive">
             <table class="table table-striped">
-              
+              <thead>
                 <tr>
                   <th>作成者</th>
                   <th>タイトル</th>
                   <th>本文</th>
                   <th>状態</th>
                 </tr>
-              
+              </thead> 
+              <tbody>
                 @if(isset($article))
                 <tr>
                   <td>{{ $article->user->name }}</td>
@@ -25,7 +26,7 @@
                   <td>{{ $article->status }}</td>
                 </tr>
                 @endif
-              
+              </tbody>
             </table>
 
             @if(isset($article))
