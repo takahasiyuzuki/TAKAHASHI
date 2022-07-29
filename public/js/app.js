@@ -1,16 +1,3 @@
-function confirm_test() {
-  document.getElementById('popup').style.display = 'block';
-  return false;
-}
-
-function okfunc() {
-  document.contactform.submit();
-}
-
-function nofunc() {
-  document.getElementById('popup').style.display = 'none';
-}
-
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};

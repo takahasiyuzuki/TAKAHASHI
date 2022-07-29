@@ -7,12 +7,13 @@
             <div class="card">
             <div class="midasi"><div class="toukou">新規投稿</div></div>
                 <div class="card-body">
-                @if (session('flash_message'))
-            <div class="flash_message">
-                {{ session('flash_message') }}
-            </div>
-        @endif
-                    <form action="{{ route('store') }}">
+                    @if (session('flash_message'))
+                        <div class="flash_message">
+                        {{ session('flash_message') }}
+                        </div>
+                    @endif
+
+                    <form method="post" enctype="multipart/form-data" action="{{ route('store') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="title" class="col-md-2 col-form-label text-md-right">タイトル</label>
@@ -26,6 +27,11 @@
                             <div class="col-md-9">
                                 <textarea name="body" id="body" class="form-control">{{ old('body') }}</textarea>
                             </div>
+                        </div>
+
+                        <div class="form-group row">
+                        <label for="nickname" class="col-md-2 col-form-label text-md-right">画像:</label>
+                        <input type="file" name="img_path">
                         </div>
 
                         <div class="form-group row">
@@ -51,6 +57,7 @@
                            </div>
                         </div>
                     </form>
+                           
                 </div>
             </div>
         </div>

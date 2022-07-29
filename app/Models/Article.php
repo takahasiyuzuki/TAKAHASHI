@@ -12,6 +12,7 @@ class Article extends Model
         'body',
         'status',
         'user_id',
+        'img_path',
     ];
 
     public function user()
@@ -19,6 +20,9 @@ class Article extends Model
         return $this->belongsTo(User::class);
     }
 
-
-    
+    public function userid()
+    {
+      return $this->belongsTo('App\Models\User','name');
+    }
+  
 }
