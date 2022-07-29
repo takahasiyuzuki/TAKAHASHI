@@ -43,5 +43,3 @@ Route::get('/useredit/{id}', 'ArticleController@useredit')->name('useredit');
 Route::post('/userupdate/{id}', 'ArticleController@userupdate')->name('userupdate'); 
 
 Route::get('/userdestroy/{id}', 'ArticleController@userdestroy')->name('userdestroy'); 
-
-Route::get('/test', 'ArticleController@test')->name('test'); 
