@@ -19,6 +19,7 @@
                     <img src="{{ asset("storage/$article->img_path") }}" />
                    </div>
                   <p class="content-1">{{ $article->title }}</p>
+                  <hr>
                   <p class="content-2">{{ $article->body }}</p>
                 </div>
                 @endif
