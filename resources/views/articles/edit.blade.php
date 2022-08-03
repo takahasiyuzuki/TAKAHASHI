@@ -24,7 +24,7 @@
 
                         <div class="form-group row">
                         <label for="nickname" class="col-md-2 col-form-label text-md-right">画像</label>
-                        <input type="file" name="img_path">{{ old('boimg_pathdy', $article->img_path) }}
+                        <input type="file" name="img_path">
                         </div>
 
                         
