@@ -17,29 +17,30 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//ホーム
+Route::get('/home', 'ArticleController@index')->name('index');
+//一覧表示
+Route::get('/index', 'ArticleController@index')->name('index');
+//新規作成画面
+Route::get('/create', 'ArticleController@create')->name('create');
+//新規作成機能
+Route::post('/store', 'ArticleController@store')->name('store');
+//記事詳細画面
+Route::get('/show/{id}', 'ArticleController@show')->name('show');
+//編集画面
+Route::get('/edit/{id}', 'ArticleController@edit')->name('edit');
+//削除
+Route::get('/destroy/{id}', 'ArticleController@destroy')->name('destroy');
+//更新
+Route::post('/update/{id}', 'ArticleController@update')->name('update');
 
-Route::get('/home', 'ArticleController@index')->name('index'); 
-
-Route::get('/index', 'ArticleController@index')->name('index'); 
-
-Route::get('/create', 'ArticleController@create')->name('create'); 
-
-Route::post('/store', 'ArticleController@store')->name('store'); 
-
-Route::get('/show/{id}', 'ArticleController@show')->name('show'); 
-
-Route::get('/edit/{id}', 'ArticleController@edit')->name('edit'); 
-
-Route::get('/destroy/{id}', 'ArticleController@destroy')->name('destroy'); 
-
-Route::post('/update/{id}', 'ArticleController@update')->name('update'); 
-
-Route::get('/management', 'ArticleController@management')->name('management'); 
-
-Route::get('/user/{id}', 'ArticleController@user')->name('user'); 
-
-Route::get('/useredit/{id}', 'ArticleController@useredit')->name('useredit'); 
-
-Route::post('/userupdate/{id}', 'ArticleController@userupdate')->name('userupdate'); 
-
-Route::get('/userdestroy/{id}', 'ArticleController@userdestroy')->name('userdestroy'); 
+//ユーザー一覧
+Route::get('/management', 'UserController@management')->name('management');
+//ユーザー詳細画面
+Route::get('/user/{id}', 'UserController@user')->name('user');
+//編集画面
+Route::get('/profile/{id}', 'UserController@profile')->name('profile');
+//ユーザ-更新
+Route::post('/renewal/{id}', 'UserController@renewal')->name('renewal');
+//ユーザー削除
+Route::get('/delete/{id}', 'UserController@delete')->name('delete');

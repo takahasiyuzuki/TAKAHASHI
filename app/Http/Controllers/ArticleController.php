@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\User;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+
 
 class ArticleController extends Controller
 {
@@ -37,7 +38,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-         
+
          return view('articles.create'); 
     }
 
@@ -49,26 +50,34 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $filename = $request->img_path->getClientOriginalName();
-        $img_path = $request->img_path->storeAs('',$filename,'public');
 
         $user = Auth::user(); 
         $id = Auth::id();
-       
+
+        // $filename = $request->img_path->getClientOriginalName();
+        // $img_path = $request->img_path->storeAs('',$filename,'public');
+
+        if ($request->hasFile('img_path')) {
+           $filename = $request->img_path->getClientOriginalName();
+           $img_path = $request->img_path->storeAs('',$filename,'public');
+        }else {
+            $img_path = null;
+        }
 
         \DB::beginTransaction();
         try {
-        $article = Article::create([
-            'user_id' => $user->id,
-            'title' => $request->title,
-            'body' => $request->body,
-            'img_path' => $img_path,
-            'status' => $request->status,
+            $article = Article::create([
+                'user_id' => $user->id,
+                'title' => $request->title,
+                'body' => $request->body,
+                'img_path' => $img_path,
+                'status' => $request->status,
             ]); 
         \DB::commit();
 
         } catch(\Throwable $e) {
             \DB::rollback();
+            dd($e);
 
         }
 
@@ -90,7 +99,6 @@ class ArticleController extends Controller
         ->get();
 
         return view('articles.show', compact('article'));
-        return response()->json('articles.show',['article' => $article ],['users' => $users]);
     }
 
     /**
@@ -116,12 +124,21 @@ class ArticleController extends Controller
     public function update(Request $request, Int $id)
     {
         $article = Article::find($request->id);
-    
-        \DB::beginTransaction();
+
         try {
-            $article->fill($request->all())->save();
-            \DB::commit();
-        } catch (\Exception $e) {
+         $img_path = $request->file('img_path');
+         $path = $article->img_path;
+         if (isset($img_path)) {
+             \Storage::disk('public')->delete($path);
+             $path = $img_path->store('articles', 'public');
+         }
+
+         $article->update([
+             'title' => $request->title,
+             'body' => $request->body,
+             'status' => $request->status,
+             'img_path' => $path,
+            ]);}catch (\Exception $e) {
             \DB::rollback();
         }
 
@@ -134,6 +151,7 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         $article = Article::find($id);
@@ -148,63 +166,4 @@ class ArticleController extends Controller
 
         return redirect()->route('index');
     }
-
-    public function management()
-    {
-         $users = User::all();
-
-         return view('articles.management', ['users' => $users]); 
-    }
-
-    public function user(Int $id)
-    {
-        $user = User::find($id);
-
-        return view('articles.user', compact('user'));
-        
-    }
-    public function useredit(Int $id)
-    {
-        $user = User::find($id);
-
-        return view('articles.useredit', compact('user'));
-    }
-    
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function userupdate(Request $request, Int $id)
-    {
-        $user = User::find($request->id);
-    
-        \DB::beginTransaction();
-        try {
-            $user->fill($request->all())->save();
-            \DB::commit();
-        } catch (\Exception $e) {
-            \DB::rollback();
-        }
-
-        return redirect()->route('management');
-    }
-
-    public function userdestroy($id)
-    {
-        $user = User::find($id);
-
-        \DB::beginTransaction();
-        try {
-            $user->delete();
-            \DB::commit();
-        } catch (\Exception $e) {
-            \DB::rollback();
-        }
-
-        return redirect()->route('index');
-    }
-    
 }

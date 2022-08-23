@@ -8,7 +8,7 @@
             <div class="midasi"><div class="toukou">編集</div></div>
                 <div class="card-body">
 
-                    <form action="{{ route('userupdate', $user->id) }}" method="POST">
+                    <form action="{{ route('renewal', $user->id) }}" method="POST">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-2 col-form-label text-md-right">名前</label>

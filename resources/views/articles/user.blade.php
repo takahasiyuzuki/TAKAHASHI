@@ -13,7 +13,7 @@
                 <tr>
                   <th>id</th>
                   <th>名前</th>
-                  <th>メール</th>
+                  <th>メールアドレス</th>
                 </tr>
               </thead> 
               <tbody>
@@ -29,26 +29,32 @@
 
             @if(isset($user))
               <div class="text-center">
-              <button type="button" class="button4" onClick="history.back()">戻る</button>
-                  <form style="display:inline" action="{{ route('edit', $user->id) }}" method="post">
-                    <button type="button" class="button3" onClick="location.href='{{ route('useredit', $user->id) }}'">
+                 <button type="button" class="button4" onClick="history.back()">戻る</button>
+                  <form style="display:inline" action="{{ route('profile', $user->id) }}" method="post">
+                    <button type="button" class="button3" onClick="location.href='{{ route('profile', $user->id) }}'">
                       編集
                     </button>
                   </form>
-                       @if(Auth::id() === config('const.admin_flag.管理者'))
-                         <form style="display:inline" name="contactform" action="{{ route('userdestroy', $user->id) }}">
-                                  @method('DELETE')
-                                  @csrf
-                                  <button type="submit"  class="button2"  onclick="return confirm_test()">
-                                      {{ __('削除') }}
-                                  </button>
-                          </form>
-                            <div id="popup">
-                                本当に削除しますか？<br>
-                                <button id="ok" onclick="okfunc()"> O K </button>
-                                <button id="no" onclick="nofunc()">キャンセル</button>
-                            </div>
-                       @endif
+                  <form style="display:inline" name="contactform" action="{{ route('delete', $user->id) }}">
+                    <a class="button5" data-toggle="modal" data-target="#SampleModal" data-title="{{ $user->id }}" data-url="{{ route('delete', $user->id) }}" > 
+                      削除 </a>
+                    <div class="modal fade" id="SampleModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                   <form role="form" class="form-inline" method="post" action="">
+                      @csrf
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="myModalLabel">本当に削除しますか？</h5>
+                              </div>
+                                <div class="modal-footer">
+                                    <a class="btn btn-light" data-dismiss="modal">閉じる</a>
+                                    <button type="submit" class="btn btn-danger">削除</button>
+                                </div>
+                          </div>
+                      </div>
+                    </form>
+                 </div>
+               </form>
             @endif
           </div>
         </div>

@@ -38,11 +38,11 @@
                             <label class="col-md-2 col-form-label text-md-right">ステータス</label>
                             <div class="form-check form-check-inline ml-3">
                                 <input class="form-check-input" type="radio" id="open" name="status" value="0" checked="checked">
-                                <label class="form-check-label" for="open">公開</label>
+                                <label class="form-check-label" for="open">非公開</label>
                              </div>
                              <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" id="private"  name="status" value="1">
-                                <label class="form-check-label" for="private">未公開</label>
+                                <label class="form-check-label" for="private">公開</label>
                              </div>
                         </div>
 

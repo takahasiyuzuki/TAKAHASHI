@@ -38,8 +38,8 @@
                           <tr onclick="location.href='{{ route('show', $article->id) }}'" class="orange">
                             <td><a class="result" href="{{ route('show', $article->id) }}">{{ $article->id }}</a></td>
                             <td>{{ $article->title }}</td>
-                            <td>{{ $article->body }}</td>
-                            <td>{{ config('const.status')[$article->status] }}</td>
+                            <td class="card3">{{ $article->body }}</td>
+                            <td >{{ config('const.status')[$article->status] }}</td>
                             <td><img src="{{ asset("storage/$article->img_path") }}" width="100px"></td>
                           </tr>
                           @endforeach
@@ -53,4 +53,8 @@
     </div>
   </div>
 </div>
+<div id="wrapper">
+  <canvas id="waveCanvas"></canvas>
+<!--/wrapper--></div>
+<script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/js/5-10.js"></script>
 @endsection
