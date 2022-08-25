@@ -36,7 +36,8 @@
                                 <label class="form-check-label" for="private">公開</label>
                              </div>
                         </div>
-                        <div>
+                        <div class="form-group row">
+                        <label for="body" class="col-md-2 col-form-label text-md-right">画像</label>
                           <input type="file" name="img_path">
                         </div>
                         <div class="text-center">

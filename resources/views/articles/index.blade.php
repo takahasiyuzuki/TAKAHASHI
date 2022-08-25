@@ -8,7 +8,6 @@
         <div class="midasi">
           <div class="toukou">投稿一覧</div>
           </div>
-
             <div class="card-body">
               <div class="wrap">
                   <button type="button" class="button" onclick="location.href='{{ route('create') }}'">
@@ -53,8 +52,5 @@
     </div>
   </div>
 </div>
-<div id="wrapper">
-  <canvas id="waveCanvas"></canvas>
-<!--/wrapper--></div>
-<script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/js/5-10.js"></script>
+</div>
 @endsection

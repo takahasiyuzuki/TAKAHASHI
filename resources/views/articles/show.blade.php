@@ -60,16 +60,4 @@
       </div>
     </div>
   </div>
-  <script>
-  window.onload = function() {
-    $('#SampleModal').on('shown.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var title = button.data('title');
-        var url = button.data('url');
-        var modal = $(this);
-        
-        modal.find('.modal-body p').eq(0).text("本当に"+title+"を削除しますか?");
-        modal.find('form').attr('action',url);
-    });
-  }</script>
 @endsection
