@@ -31,21 +31,9 @@ const app = new Vue({
     el: '#app',
 });
 
-//削除モーダル
-window.onload = function() {
-    $('#SampleModal').on('shown.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var title = button.data('title');
-        var url = button.data('url');
-        var modal = $(this);
-        
-        modal.find('.modal-body p').eq(0).text("本当に"+title+"を削除しますか?");
-        modal.find('form').attr('action',url);
-    });
-  }
 
 //TOP画面の背景
-particlesJS("particles-js",{
+  particlesJS("particles-js",{
 	"particles":{
 		"number":{
 			"value":38,
@@ -128,17 +116,5 @@ particlesJS("particles-js",{
 	"retina_detect":true
 });
 
-//テキストエリア自動改行
-$(function () {
-	$('#textarea').on('input', function () {
-	  if ($(this).outerHeight() > this.scrollHeight) {
-		$(this).height(1)
-	  }
-	  while ($(this).outerHeight() < this.scrollHeight) {
-		$(this).height($(this).height() + 1)
-	  }
-	});
-  });
 
 
-  

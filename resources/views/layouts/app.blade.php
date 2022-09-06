@@ -64,7 +64,7 @@
                                        >
                                         {{ __('新規登録') }}
                                     </a>
-                                    @if(Auth::id() === config('const.admin_flag.管理者'))
+                                    @if(Auth::user()->admin_flag === (int)array_flip(config('const.admin_flag'))['管理者'])
                                      <a class="dropdown-item" href="{{ route('management') }}">
                                         {{ __('管理者一覧') }}
                                      </a>

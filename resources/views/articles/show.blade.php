@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<div id="particles-js"></div>
+  <div id="wrapper">
+  
+ 
+  </div>
 <div class="container">
   <div class="row justify-content-center">
    <div class="col-md-12">
@@ -16,7 +21,7 @@
                 <div class="box1">作成者：{{ $article->user->name }}</div>
                 <div class="card-2">
                  <div class="content-img">
-                  <img src="{{ asset("storage/$article->img_path") }}" />
+                  <img src="{{ asset('storage/' .$article->img_path) }}" />
                  </div>
                       <p class="content-1">{{ $article->title }}</p>
                       <hr>
@@ -33,10 +38,10 @@
                         </button>
                       </form>
 
-                          @if(Auth::id() === config('const.admin_flag.管理者'))
+                      @if(Auth::user()->admin_flag === (int)array_flip(config('const.admin_flag'))['管理者'])
                             <form style="display:inline" name="contactform" action="{{ route('destroy', $article->id) }}">
                             @method('DELETE')
-                                      <a class="button5" data-toggle="modal" data-target="#SampleModal" data-title="{{ $article->id }}" data-url="{{ route('destroy',['id' => $article->id]) }}" > 削除 </a>
+                                    <a class="button5" data-toggle="modal" data-target="#SampleModal" data-title="{{ $article->id }}" data-url="{{ route('destroy',['id' => $article->id]) }}" > 削除 </a>
                                     <div class="modal fade" id="SampleModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                                       <form role="form" class="form-inline" method="post" action="">
                                       @csrf
@@ -59,5 +64,6 @@
                 </div>
       </div>
     </div>
+  </div>
   </div>
 @endsection

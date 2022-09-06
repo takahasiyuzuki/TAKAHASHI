@@ -31,6 +31,14 @@ class ArticleController extends Controller
          return view('articles.index', compact('articles')); 
     }
 
+    public function top()
+    {
+         $articles = Article::all();
+
+         return view('articles.top', compact('articles')); 
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

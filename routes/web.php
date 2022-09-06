@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//top
+Route::get('/top', 'ArticleController@top')->name('top');
+
+
 Auth::routes();
 
 //ホーム

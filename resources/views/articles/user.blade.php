@@ -35,7 +35,8 @@
                       編集
                     </button>
                   </form>
-                  <form style="display:inline" name="contactform" action="{{ route('delete', $user->id) }}">
+                  @if(Auth::id() != $user->id)
+                   <form style="display:inline" name="contactform" action="{{ route('delete', $user->id) }}">
                     <a class="button5" data-toggle="modal" data-target="#SampleModal" data-title="{{ $user->id }}" data-url="{{ route('delete', $user->id) }}" > 
                       削除 </a>
                     <div class="modal fade" id="SampleModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -53,8 +54,9 @@
                           </div>
                       </div>
                     </form>
-                 </div>
+                  </div>
                </form>
+               @endif
             @endif
           </div>
         </div>

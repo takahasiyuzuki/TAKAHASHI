@@ -13,7 +13,7 @@
                   <button type="button" class="button" onclick="location.href='{{ route('create') }}'">
                     新規投稿
                   </button>
-                  @if(Auth::id() === config('const.admin_flag.管理者'))
+                  @if(Auth::user()->admin_flag === (int)array_flip(config('const.admin_flag'))['管理者'])
                   <button type="button" class="button" onclick="location.href='{{ route('management') }}'">
                     管理者一覧
                   </button>
@@ -39,7 +39,7 @@
                             <td>{{ $article->title }}</td>
                             <td class="card3">{{ $article->body }}</td>
                             <td >{{ config('const.status')[$article->status] }}</td>
-                            <td><img src="{{ asset("storage/$article->img_path") }}" width="100px"></td>
+                            <td><img src="{{ asset('storage/' .$article->img_path) }}" width="100px"></td>
                           </tr>
                           @endforeach
                           @endif

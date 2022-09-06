@@ -6,7 +6,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="midasi">
-          <div class="toukou">ユーザー一覧</div>
+          <div class="toukou">ユーザー</div>
           </div>
 
             <div class="card-body">
