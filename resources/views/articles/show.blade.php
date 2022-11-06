@@ -3,9 +3,9 @@
 @section('content')
 <div id="particles-js"></div>
   <div id="wrapper">
-  
- 
   </div>
+
+
 <div class="container">
   <div class="row justify-content-center">
    <div class="col-md-12">

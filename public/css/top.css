@@ -146,6 +146,14 @@ img {
   width: 100%;
 }
 
+.box5{
+  width:100%;
+  height:100%;
+  color: #2c2c2f;
+  background: #9ca9bc;
+
+}
+
 .box4{
   width:100%;
 	height:100%;
@@ -163,7 +171,6 @@ img {
   color: #2c2c2f;
   background: #9ca9bc;
   border-radius: 32px;
-
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
 	cursor: pointer;
 	transition: all 0.3s ease 0s;
@@ -5394,10 +5401,12 @@ input[type=button].btn-block {
 }
 
 .card {
+  width: 300px;
+  height: auto;
   position: relative;
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
-  min-width: 0;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;

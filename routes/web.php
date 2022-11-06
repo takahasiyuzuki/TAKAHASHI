@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 //top
 Route::get('/top', 'ArticleController@top')->name('top');
+Route::get('/top/{id}', 'ArticleController@top2')->name('top2');
 
 
 Auth::routes();

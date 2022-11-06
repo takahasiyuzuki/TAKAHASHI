@@ -34,6 +34,18 @@ class ArticleController extends Controller
          return view('articles.top', compact('articles')); 
     }
 
+    public function top2(Int $id)
+    {
+        $article = Article::find($id);
+
+        $articles = \DB::table('users')
+        ->join('articles', 'users.name', '=', 'articles.user_id')
+        ->get();
+
+        return view('articles.top2', compact('article'));
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

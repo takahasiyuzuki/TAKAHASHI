@@ -30,14 +30,14 @@
     <div class="scrolldown4"><span>Scroll</span></div>
 </div>
 
-<div class="box4">
+<div style="margin-top: 120px;" class="box4">
    <div class="table-resopnsive">
                      @if(isset($articles))
                      @foreach ($articles as $article)
                      <table class="box3">
                         <tbody>
-                          <tr>
-                            <td><a class="result">{{ $article->id }}</a></td>
+                          <tr onclick="location.href='{{ route('top2', $article->id) }}'">
+                            <td><a class="result">{{ $article->id }}</td>
                             <td class="fluid" style="font-size: 30px;">{{ $article->title }}</td>
                             <td class="card3">{{ $article->body }}</td>
                           </tr>
